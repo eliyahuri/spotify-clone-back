@@ -6,7 +6,7 @@ type Config = {
 };
 
 const config: Config = {
-  port: envVar.get("PORT").default(4000).asPortNumber(),
+  port: envVar.get("PORT").required().asPortNumber(),
 };
 
 export default config;
