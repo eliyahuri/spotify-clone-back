@@ -5,7 +5,7 @@ const router: Router = express.Router();
 
 // Define your routes
 router.get("/", (req: Request, res: Response) => {
-  res.send("Hello, World!");
+  res.json({ message: "Hello, World!" });
 });
 
 // Export the router
