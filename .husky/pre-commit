@@ -1,1 +1,1 @@
-npx pnpm tsc
+npx pnpm typecheck
