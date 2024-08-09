@@ -1,1 +1,1 @@
-pnpm tsc
+npx pnpm tsc

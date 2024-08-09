@@ -1,7 +1,6 @@
+import type { CorsOptions } from "cors";
+
 export type Config = {
   port: number;
-  cors: {
-    origin: string;
-    optionsSuccessStatus: number;
-  };
+  cors: CorsOptions;
 };
