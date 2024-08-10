@@ -11,6 +11,9 @@ importers:
       '@prisma/client':
         specifier: ^5.18.0
         version: 5.18.0(prisma@5.18.0)
+      '@swc/helpers':
+        specifier: ^0.5.12
+        version: 0.5.12
       cors:
         specifier: ^2.8.5
         version: 2.8.5
@@ -26,10 +29,10 @@ importers:
     devDependencies:
       '@swc/cli':
         specifier: ^0.4.0
-        version: 0.4.0(@swc/core@1.7.6)
+        version: 0.4.0(@swc/core@1.7.6(@swc/helpers@0.5.12))
       '@swc/core':
         specifier: ^1.7.6
-        version: 1.7.6
+        version: 1.7.6(@swc/helpers@0.5.12)
       '@types/cors':
         specifier: ^2.8.17
         version: 2.8.17
@@ -47,7 +50,7 @@ importers:
         version: 5.18.0
       ts-node:
         specifier: ^10.9.2
-        version: 10.9.2(@swc/core@1.7.6)(@types/node@22.1.0)(typescript@5.5.4)
+        version: 10.9.2(@swc/core@1.7.6(@swc/helpers@0.5.12))(@types/node@22.1.0)(typescript@5.5.4)
 
 packages:
 
@@ -191,6 +194,9 @@ packages:
 
   '@swc/counter@0.1.3':
     resolution: {integrity: sha512-e2BR4lsJkkRlKZ/qCHPw9ZaSxc0MVUd7gtbtaB7aMvHeJVYe8sOB8DBZkP2DtISHGSku9sCK6T6cnY0CtXrOCQ==}
+
+  '@swc/helpers@0.5.12':
+    resolution: {integrity: sha512-KMZNXiGibsW9kvZAO1Pam2JPTDBm+KSHMMHWdsyI/1DbIZjT2A6Gy3hblVXUMEDvUAKq+e0vL0X0o54owWji7g==}
 
   '@swc/types@0.1.12':
     resolution: {integrity: sha512-wBJA+SdtkbFhHjTMYH+dEH1y4VpfGdAc2Kw/LK09i9bXd/K6j6PkDcFCEzb6iVfZMkPRrl/q0e3toqTAJdkIVA==}
@@ -947,6 +953,9 @@ packages:
       '@swc/wasm':
         optional: true
 
+  tslib@2.6.3:
+    resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
+
   type-is@1.6.18:
     resolution: {integrity: sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g==}
     engines: {node: '>= 0.6'}
@@ -1061,10 +1070,10 @@ snapshots:
 
   '@sindresorhus/is@4.6.0': {}
 
-  '@swc/cli@0.4.0(@swc/core@1.7.6)':
+  '@swc/cli@0.4.0(@swc/core@1.7.6(@swc/helpers@0.5.12))':
     dependencies:
       '@mole-inc/bin-wrapper': 8.0.1
-      '@swc/core': 1.7.6
+      '@swc/core': 1.7.6(@swc/helpers@0.5.12)
       '@swc/counter': 0.1.3
       commander: 8.3.0
       fast-glob: 3.3.2
@@ -1104,7 +1113,7 @@ snapshots:
   '@swc/core-win32-x64-msvc@1.7.6':
     optional: true
 
-  '@swc/core@1.7.6':
+  '@swc/core@1.7.6(@swc/helpers@0.5.12)':
     dependencies:
       '@swc/counter': 0.1.3
       '@swc/types': 0.1.12
@@ -1119,8 +1128,13 @@ snapshots:
       '@swc/core-win32-arm64-msvc': 1.7.6
       '@swc/core-win32-ia32-msvc': 1.7.6
       '@swc/core-win32-x64-msvc': 1.7.6
+      '@swc/helpers': 0.5.12
 
   '@swc/counter@0.1.3': {}
+
+  '@swc/helpers@0.5.12':
+    dependencies:
+      tslib: 2.6.3
 
   '@swc/types@0.1.12':
     dependencies:
@@ -1878,7 +1892,7 @@ snapshots:
     dependencies:
       escape-string-regexp: 5.0.0
 
-  ts-node@10.9.2(@swc/core@1.7.6)(@types/node@22.1.0)(typescript@5.5.4):
+  ts-node@10.9.2(@swc/core@1.7.6(@swc/helpers@0.5.12))(@types/node@22.1.0)(typescript@5.5.4):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
@@ -1896,7 +1910,9 @@ snapshots:
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
     optionalDependencies:
-      '@swc/core': 1.7.6
+      '@swc/core': 1.7.6(@swc/helpers@0.5.12)
+
+  tslib@2.6.3: {}
 
   type-is@1.6.18:
     dependencies:

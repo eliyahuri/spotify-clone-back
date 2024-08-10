@@ -5,19 +5,20 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node src/index.ts",
-    "typecheck":"tsc --noEmit",
+    "typecheck": "tsc --noEmit",
     "build": "pnpm typecheck && swc src -d dist",
     "db:push": "prisma db push",
     "db:generate": "prisma generate",
     "prepare": "husky || true",
     "postinstall": "npx pnpm db:generate",
-    "start": "node dist/index.js"
+    "start": "node dist/src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^5.18.0",
+    "@swc/helpers": "^0.5.12",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "env-var": "^7.5.0",
