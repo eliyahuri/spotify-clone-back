@@ -1,6 +1,7 @@
 import express, { Router } from "express";
 import {
   createUser,
+  deleteUser,
   getUserById,
   getUsers,
 } from "../controllers/user.controllers";
@@ -19,6 +20,11 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   const user = createUserSchema.parse(req.body);
   return res.json({ message: await createUser(user) });
+});
+
+router.delete("/:id", async (req, res) => {
+  const { id } = req.params;
+  return res.json({ message: await deleteUser(id) });
 });
 
 export default router;

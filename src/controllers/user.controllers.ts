@@ -12,3 +12,7 @@ export const getUserById = async (id: string) => {
 export const createUser = async (data: Prisma.UserCreateInput) => {
   return await prisma.user.create({ data });
 };
+
+export const deleteUser = async (id: string) => {
+  return await prisma.user.delete({ where: { id } });
+};
