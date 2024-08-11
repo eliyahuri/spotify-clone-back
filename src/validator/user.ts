@@ -27,26 +27,9 @@ export const updateUserSchema = z.object({
   password: z.string().min(6).optional(),
   image: z
     .object({
-      connect: z
-        .object({
-          id: z.string(),
-        })
-        .optional(),
-      create: z
-        .object({
-          url: z.string().url(),
-        })
-        .optional(),
-      connectOrCreate: z
-        .object({
-          where: z.object({
-            id: z.string(),
-          }),
-          create: z.object({
-            url: z.string().url().optional(),
-          }),
-        })
-        .optional(),
+      update: z.object({
+        url: z.string().url().optional(),
+      }),
     })
     .optional(),
   playlists: z
@@ -61,15 +44,6 @@ export const updateUserSchema = z.object({
             z.object({
               connect: z.object({
                 id: z.string(),
-              }),
-              connectOrCreate: z.object({
-                where: z.object({
-                  id: z.string(),
-                }),
-                create: z.object({
-                  name: z.string(),
-                  url: z.string().url(),
-                }),
               }),
             })
           ),
