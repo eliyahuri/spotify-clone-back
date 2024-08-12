@@ -10,7 +10,10 @@ export const getUserById = async (id: string) => {
 };
 
 export const getUserByName = async (name: string) => {
-  return await prisma.user.findUnique({ where: { name } });
+  return await prisma.user.findUnique({
+    where: { name },
+    include: { image: true, playlists: true },
+  });
 };
 export const createUser = async (data: Prisma.UserCreateInput) => {
   return await prisma.user.create({ data });
