@@ -35,5 +35,8 @@
     "prettier": "^3.3.3",
     "prisma": "^5.18.0",
     "ts-node": "^10.9.2"
-  }
+  },
+  "prisma": {
+  "seed": "ts-node scripts/seed.ts"
+}
 }
