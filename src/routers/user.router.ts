@@ -1,5 +1,6 @@
 import express, { Router } from "express";
 import {
+  addPlaylistToUser,
   createUser,
   deleteUser,
   getUserById,
@@ -32,6 +33,11 @@ router.post("/", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
   return res.json({ message: await deleteUser(id) });
+});
+
+router.put("/addPlaylistToUser/:userId/:playlistId", async (req, res) => {
+  const { playlistId, userId } = req.params;
+  return res.json({ message: await addPlaylistToUser(userId, playlistId) });
 });
 
 export default router;

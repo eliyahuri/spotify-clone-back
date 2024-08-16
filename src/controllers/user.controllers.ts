@@ -22,3 +22,14 @@ export const createUser = async (data: Prisma.UserCreateInput) => {
 export const deleteUser = async (id: string) => {
   return await prisma.user.delete({ where: { id } });
 };
+
+export const addPlaylistToUser = async (userId: string, playlistId: string) => {
+  return await prisma.user.update({
+    where: { id: userId },
+    data: {
+      playlists: {
+        connect: { id: playlistId },
+      },
+    },
+  });
+};
