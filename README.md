@@ -29,3 +29,9 @@ pnpm db:generate
 ```bash
 pnpm prisma migrate dev --name NAME_OF_MIGRATION
 ```
+
+## if you want to seed the database use
+
+```bash
+pnpm prisma db seed
+```
